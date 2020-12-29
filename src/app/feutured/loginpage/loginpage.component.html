@@ -1,0 +1,28 @@
+<div class="container">
+    <form class="loginForm" [formGroup]="loginForm" (submit)="submitLogin()">
+        <div class="row">
+            <div class="col-12">
+                <label class="font-weight-bold">Login</label>
+
+                <div class="form-group">
+                    <label for="inputEmail1">Email address</label>
+                    <input type="email" formControlName="email" class="form-control" id="inputEmail1"
+                        aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+                <span class="invalid" *ngIf="loginForm.controls.email.invalid && submitted">This field is required</span>
+                <div class="form-group">
+                    <label for="inputPassword1">Password</label>
+                    <input type="password" formControlName="password" class="form-control" id="inputPassword1"
+                        placeholder="Password">
+                </div>
+                <span class="invalid" *ngIf="loginForm.controls.password.invalid && submitted">This field is required</span>
+                <span class="invalid" *ngIf="wrongCredentials">Wrong email or password</span>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <label>Dont have account?<a [routerLink]="'signup'">SIgn up</a></label>
+        </div>
+    </form>
+</div>
