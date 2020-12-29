@@ -15,6 +15,7 @@ export class LoginpageComponent implements OnInit {
 
   loginForm: FormGroup;
   wrongCredentials: boolean = false;
+  submitted: boolean = false;
 
   ngOnInit(): void {
 
@@ -26,6 +27,7 @@ export class LoginpageComponent implements OnInit {
   }
 
   submitLogin() {
+    this.submitted = true;
     let user = this.loginForm.value
     console.log(user)
     this.login.loginUser(user)
