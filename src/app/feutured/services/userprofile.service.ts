@@ -22,8 +22,7 @@ export class UserprofileService {
 
   handleError() {
     window.confirm("Login first!");
-    this.router.navigate(['']);
-    return throwError
+    return this.router.navigate(['']);
   }
 
 }

@@ -16,12 +16,14 @@
                         placeholder="Password">
                 </div>
                 <span class="invalid" *ngIf="loginForm.controls.password.invalid && submitted">This field is required</span>
-                <span class="invalid" *ngIf="wrongCredentials">Wrong email or password</span>
                 <span><br></span>
-                <button mat-button color="primary" type="submit">Submit</button>
+                <button class="btn btn-dark"  type="submit">Submit</button>
             </div>
         </div>
         <br>
+        <div class="row">
+            <span class="invalid" *ngIf="wrongCredentials">Wrong email or password</span>
+        </div>
         <div class="row">
             <label>Dont have account?<a [routerLink]="'signup'">  Sign up</a></label>
         </div>

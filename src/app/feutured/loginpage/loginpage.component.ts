@@ -20,8 +20,6 @@ export class LoginpageComponent implements OnInit {
 
   ngOnInit(): void {
 
-    localStorage.setItem('token', "initializeToken")
-
     this.loginForm = this.fb.group({
       email: [null, Validators.required],
       password: [null, Validators.required]
@@ -41,10 +39,11 @@ export class LoginpageComponent implements OnInit {
         this.router.navigate(['home'])
       }
       else {
-        this.wrongCredentials = true;
+        
         return
       }
     })
+    this.wrongCredentials = true;
   }
 
 }

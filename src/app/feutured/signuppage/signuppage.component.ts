@@ -36,6 +36,7 @@ export class SignuppageComponent implements OnInit {
     if (this.signupForm.invalid || this.matchedPassword === false) {
       return ;
     } else {
+      //email already exists error handle
       let credentials: User = this.signupForm.value
       this.signup.signupUser(credentials).subscribe( value => {
         localStorage.setItem('userid', value.user._id)

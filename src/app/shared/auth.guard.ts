@@ -11,7 +11,6 @@ import { UserprofileService } from '../feutured/services/userprofile.service';
 export class AuthGuard implements CanActivate {
 
   authedUserd: boolean;
-  userToken = localStorage.getItem('token');
 
   constructor(private route: Router, private userProfile: UserprofileService) {
 
@@ -22,14 +21,16 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean> | boolean {
 
     return this.userProfile.getUserProfile().pipe(map((value) => {
+      let userToken = localStorage.getItem('token');
+
       // catchError(this.handleError)
-      if (this.userToken === value.body.token) {
+      if (userToken === value.body.token) {
         return true
-      }
-      console.log(1)
+      } else
+     { console.log(1)
       window.confirm("Login first!");
-      this.route.navigate(['']);
-      return false
+      this.route.navigate([""]);
+      return false}
     }
      ));
   }
