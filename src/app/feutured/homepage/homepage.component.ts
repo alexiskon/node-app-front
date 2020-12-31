@@ -10,6 +10,8 @@ export class HomepageComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    // console.log(localStorage.getItem('userid'))
+    // console.log(localStorage.getItem('token'))
   }
 
 }

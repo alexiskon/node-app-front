@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
 import { LoginserviceService } from '../services/loginservice.service';
+import { UserprofileService } from '../services/userprofile.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -11,13 +12,15 @@ import { LoginserviceService } from '../services/loginservice.service';
 export class LoginpageComponent implements OnInit {
 
   constructor(private fb: FormBuilder, private login: LoginserviceService,
-    private router: Router) { }
+    private router: Router, private userProfile: UserprofileService) { }
 
   loginForm: FormGroup;
   wrongCredentials: boolean = false;
   submitted: boolean = false;
 
   ngOnInit(): void {
+
+    localStorage.setItem('token', "initializeToken")
 
     this.loginForm = this.fb.group({
       email: [null, Validators.required],
@@ -29,11 +32,12 @@ export class LoginpageComponent implements OnInit {
   submitLogin() {
     this.submitted = true;
     let user = this.loginForm.value
-    console.log(user)
-    this.login.loginUser(user)
-    .subscribe( value => {
-      console.log(value.status)
-      if (value.status === 200) {
+    this.login.loginUser(user).subscribe(data => {
+      // console.log(1)
+      // console.log(data.body.user._id, data.body.token)
+      if (data.status === 200) {
+        localStorage.setItem('userid', data.body.user._id)
+        localStorage.setItem('token', data.body.token)
         this.router.navigate(['home'])
       }
       else {

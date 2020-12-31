@@ -2,7 +2,7 @@
     <form class="loginForm" [formGroup]="loginForm" (submit)="submitLogin()">
         <div class="row">
             <div class="col-12">
-                <label class="font-weight-bold">Login</label>
+                <label id="header" class="font-weight-bold">Login</label>
 
                 <div class="form-group">
                     <label for="inputEmail1">Email address</label>
@@ -17,12 +17,13 @@
                 </div>
                 <span class="invalid" *ngIf="loginForm.controls.password.invalid && submitted">This field is required</span>
                 <span class="invalid" *ngIf="wrongCredentials">Wrong email or password</span>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <span><br></span>
+                <button mat-button color="primary" type="submit">Submit</button>
             </div>
         </div>
         <br>
         <div class="row">
-            <label>Dont have account?<a [routerLink]="'signup'">SIgn up</a></label>
+            <label>Dont have account?<a [routerLink]="'signup'">  Sign up</a></label>
         </div>
     </form>
 </div>
