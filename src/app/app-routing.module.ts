@@ -14,7 +14,10 @@ const routes: Routes = [{
   path: "signup", component: SignuppageComponent
 },
 {
-  path: "home", component: HomepageComponent, canActivate:[AuthGuard], children: [{path: "taskform", component: TaskformComponent}]
+  path: "home", component: HomepageComponent, canActivate:[AuthGuard]
+},
+{
+  path: "home/taskform", component: TaskformComponent, canActivate:[AuthGuard]
 },
 {
   path: "account",  component: AccountsettingsComponent, canActivate:[AuthGuard]

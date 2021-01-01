@@ -1,8 +1,9 @@
 export interface Task {
-    completed: boolean,
+    _id: String,
+    projectName: String,
     description: String,
-    colaborators: String,
+    completed: boolean,
     estimatedTime: String,
-    createdAt: Date,
-    updatedAt: Date
+    colaborators: String,
+    created: { Date: any }
 }

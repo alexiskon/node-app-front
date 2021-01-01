@@ -1,1 +1,33 @@
-<p>homepage works!</p>
+<div class="container">
+    <div class="row">
+        <button id="createbtn" class="btn btn-primary" type="button" [routerLink]="['taskform']">Create task</button>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Description</th>
+                    <th scope="col">Project name</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Colaborators</th>
+                    <th scope="col">Duration</th>
+                    <th scope="col">Created</th>
+                    <th>Actions</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of TaskData[0]">
+                    <td class="td-data">{{ item.description }}</td>
+                    <td class="td-data">{{ item.projectName }}</td>
+                    <td class="td-data">{{ item.completed }}</td>
+                    <td class="td-data">{{ item.colaboratos }}</td>
+                    <td class="td-data">{{ item.estimatedTime }}</td>
+                    <td class="td-data">{{ item.created | date:"dd/MM/yyyy hh:mm:ss" }}</td>
+                    <td><button class="btn-dark btn" (click)="editClicked(item)">Edit</button></td>
+                    <td><button class="btn-danger btn" (click)="deleteTask(item)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
