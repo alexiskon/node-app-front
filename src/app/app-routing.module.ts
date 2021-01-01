@@ -5,7 +5,7 @@ import { HomepageComponent } from './feutured/homepage/homepage.component';
 import { LoginpageComponent } from './feutured/loginpage/loginpage.component';
 import { SignuppageComponent } from './feutured/signuppage/signuppage.component';
 import { TaskformComponent } from './feutured/taskform/taskform.component';
-import { AuthGuard } from './shared/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [{
   path: "", component: LoginpageComponent

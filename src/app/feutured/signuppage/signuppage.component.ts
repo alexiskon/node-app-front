@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { User } from 'src/app/shared/user';
-import { SignupserviceService } from '../services/signupservice.service';
+import { User } from 'src/app/shared/interfaces/user';
+import { SignupserviceService } from '../user-services/signupservice.service';
 
 @Component({
   selector: 'app-signuppage',
@@ -16,7 +16,7 @@ export class SignuppageComponent implements OnInit {
 
   signupForm: FormGroup;
   submitted: boolean = false;
-  matchedPassword: boolean = false;
+  matchedPassword: boolean = true;
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({

@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
-import { User } from 'src/app/shared/user';
+import { User } from 'src/app/shared/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +17,10 @@ export class UserprofileService {
   getUserProfile(): Observable<any> {
     let token = localStorage.getItem('token')
     return this.http.get<any>(this.url, { observe: 'response', headers: new HttpHeaders().set('Authorization', token) })
-      .pipe(catchError(this.handleError))
-  }
-
-  handleError() {
-    window.confirm("Login first!");
-    return this.router.navigate(['']);
+      .pipe(catchError(() => {
+        window.confirm("Login first!");
+        return this.router.navigate([""]);
+      }))
   }
 
 }

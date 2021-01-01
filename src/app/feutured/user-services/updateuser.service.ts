@@ -12,6 +12,7 @@ export class UpdateuserService {
   url = 'http://localhost:3000/users/me'
   updateUser(credentials): Observable<any> {
     let token = localStorage.getItem('token')
+    console.log(token)
     return this.http.patch<any>(this.url, credentials, {  headers: new HttpHeaders().set('Authorization', token) })
   }
 }

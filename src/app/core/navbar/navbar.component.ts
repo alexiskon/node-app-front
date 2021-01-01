@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { LogoutService } from 'src/app/feutured/services/logout.service';
+import { LogoutService } from 'src/app/feutured/user-services/logout.service';
 
 @Component({
   selector: 'app-navbar',

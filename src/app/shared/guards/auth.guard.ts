@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { catchError, map } from 'rxjs/operators'
-import { UserprofileService } from '../feutured/services/userprofile.service';
+import { UserprofileService } from '../../feutured/user-services/userprofile.service';
 
 @Injectable({
   providedIn: 'root'

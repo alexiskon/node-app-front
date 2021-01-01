@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginserviceService } from '../services/loginservice.service';
-import { UserprofileService } from '../services/userprofile.service';
+import { LoginserviceService } from '../user-services/loginservice.service';
+import { UserprofileService } from '../user-services/userprofile.service';
 
 @Component({
   selector: 'app-loginpage',
@@ -39,11 +39,11 @@ export class LoginpageComponent implements OnInit {
         this.router.navigate(['home'])
       }
       else {
-        
+        this.wrongCredentials = true;
+
         return
       }
     })
-    this.wrongCredentials = true;
   }
 
 }

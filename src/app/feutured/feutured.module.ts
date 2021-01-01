@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginpageComponent } from './loginpage/loginpage.component';
-import {  ReactiveFormsModule } from '@angular/forms';
+import {  FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { SignuppageComponent } from './signuppage/signuppage.component';
 import { HomepageComponent } from './homepage/homepage.component';
@@ -16,6 +16,7 @@ import { TaskformComponent } from './taskform/taskform.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    FormsModule,
     RouterModule,
     HttpClientModule
   ],
