@@ -1,0 +1,21 @@
+.container {
+  width: 50%;
+  position: relative;
+  // top: 10%;
+  // margin-top: 10%;
+  padding: auto;
+  margin: auto;
+  margin-top: 10%;
+  // transform: translate(-50%, -50%);
+}
+#page {
+  width: 50%;
+  background-color: rgb(182, 122, 44);
+  color: black;
+}
+.headers {
+  color: rgb(224, 171, 102);
+}
+th.mat-sort-header-sorted {
+  color: black;
+}

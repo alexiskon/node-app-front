@@ -30,9 +30,9 @@ export class TaskformComponent implements OnInit {
       this.tasksForm = this.fb.group({
         description: [null, Validators.required],
         projectName: [null, Validators.required],
-        completed: [null, Validators.required],
-        colaborators: [null, Validators.required],
-        estimatedTime: [null, Validators.required]
+        completed: [null],
+        colaborators: [null],
+        estimatedTime: [null]
       })
     
   }
