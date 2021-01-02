@@ -24,7 +24,7 @@
                     <td class="td-data">{{ item.colaboratos }}</td>
                     <td class="td-data">{{ item.estimatedTime }}</td>
                     <td class="td-data">{{ item.created | date:"dd/MM/yyyy hh:mm:ss" }}</td>
-                    <td><button class="btn-dark btn" (click)="editClicked(item)">Edit</button></td>
+                    <td><button class="btn-dark btn" (click)="editTask(item)">Edit</button></td>
                     <td><button class="btn-danger btn" (click)="deleteTask(item)">Delete</button></td>
                 </tr>
             </tbody>

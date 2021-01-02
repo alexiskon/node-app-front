@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Task } from 'src/app/shared/interfaces/task';
 import { DeletetaskService } from '../task-services/deletetask.service';
+import { GettaskbyidService } from '../task-services/gettaskbyid.service';
 import { GettasksService } from '../task-services/gettasks.service';
-import { DeleteuserService } from '../user-services/deleteuser.service';
 
 @Component({
   selector: 'app-homepage',
@@ -11,7 +12,8 @@ import { DeleteuserService } from '../user-services/deleteuser.service';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor(private gettasks: GettasksService, private del: DeletetaskService) { }
+  constructor(private gettasks: GettasksService, private del: DeletetaskService,
+    private getId: GettaskbyidService, private router: Router) { }
   //for page 0: limit10, skip0, page1 limit10 skip10 etc
 
   //initialize data
@@ -44,6 +46,12 @@ export class HomepageComponent implements OnInit {
           this.TaskData.push(value)
         })
     }
+  }
+
+  editTask(item) {
+    this.getId.taskId(item._id).subscribe( () => {
+      this.router.navigate(["home/taskform"], {queryParams: {id: item._id}})
+    })
   }
 
 }
