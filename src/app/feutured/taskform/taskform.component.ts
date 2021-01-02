@@ -4,7 +4,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from 'src/app/shared/interfaces/task';
 import { CreatetaskService } from '../task-services/createtask.service';
 import { GettaskbyidService } from '../task-services/gettaskbyid.service';
-import { GettasksService } from '../task-services/gettasks.service';
 import { UpdatetaskService } from '../task-services/updatetask.service';
 
 @Component({
@@ -79,7 +78,6 @@ export class TaskformComponent implements OnInit {
           this.router.navigate(["home"], { queryParams: { id: value._id } })
         })
       } else {
-
         this.createtasks.createTask(this.tasks).subscribe(value => {
           this.router.navigate(["home"], { queryParams: { id: value._id } })
         })

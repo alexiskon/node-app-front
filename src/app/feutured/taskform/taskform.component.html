@@ -4,14 +4,16 @@
             <div class="col-12">
                 <label id="header" class="font-weight-bold">Tasks Form</label>
                 <div class="form-group">
-                    <label for="description">Description</label>
+                    <label for="description">Description <span *ngIf="tasksForm.controls.description.invalid"
+                            style="color: red;">*</span></label>
                     <input type="text" formControlName="description" class="form-control" id="description"
                         aria-describedby="description">
                 </div>
                 <span class="invalid" *ngIf="tasksForm.controls.description.invalid && submitted">This field is
                     required</span>
                 <div class="form-group">
-                    <label for="projectName">Project name</label>
+                    <label for="projectName">Project name <span *ngIf="tasksForm.controls.description.invalid"
+                            style="color: red;">*</span></label>
                     <input type="text" formControlName="projectName" class="form-control" id="projectName"
                         aria-describedby="projectName">
                 </div>
@@ -24,21 +26,15 @@
                         <option ng-value="false">false</option>
                     </select>
                 </div>
-                <span class="invalid" *ngIf="tasksForm.controls.completed.invalid && submitted">This field is
-                    required</span>
                 <div class="form-group">
                     <label for="colaborators">Colaborators</label>
                     <input type="text" formControlName="colaborators" class="form-control" id="colaborators">
                 </div>
-                <span class="invalid" *ngIf="tasksForm.controls.colaborators.invalid && submitted">This field is
-                    required</span>
-                    <div class="form-group">
-                        <label for="estimatedTime">Estimated time</label>
-                        <input type="text" formControlName="estimatedTime" class="form-control" id="estimatedTime"
-                            aria-describedby="estimatedTime">
-                    </div>
-                    <span class="invalid" *ngIf="tasksForm.controls.estimatedTime.invalid && submitted">This field is
-                        required</span>
+                <div class="form-group">
+                    <label for="estimatedTime">Estimated time</label>
+                    <input type="text" formControlName="estimatedTime" class="form-control" id="estimatedTime"
+                        aria-describedby="estimatedTime">
+                </div>
                 <span><br></span>
                 <button class="btn btn-primary" type="submit">Submit</button>
                 <button class="btn btn-danger" [routerLink]="['..']" type="submit" style="float: right;">Cancel</button>
