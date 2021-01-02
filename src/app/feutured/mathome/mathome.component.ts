@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Task } from 'src/app/shared/interfaces/task';
 import { DeletetaskService } from '../task-services/deletetask.service';
 import { GettaskbyidService } from '../task-services/gettaskbyid.service';
@@ -16,10 +16,12 @@ import { GettasksService } from '../task-services/gettasks.service';
 export class MathomeComponent implements OnInit {
 
   constructor(private gettasks: GettasksService, private del: DeletetaskService,
-    private getId: GettaskbyidService, private router: Router) { }
+    private getId: GettaskbyidService, private router: Router, private aroute: ActivatedRoute,
+    private gettaskbyid: GettaskbyidService) { }
 
 
   TaskData: Task[] = [];
+  editId: string = "";
 
   displayedColumns: string[] = ['description', 'projectName', 'completed', 'estimatedTime', 'colaborators', 'created', 'actions'];
   // dataSource = this.TaskData
@@ -31,10 +33,17 @@ export class MathomeComponent implements OnInit {
 
   ngOnInit(): void {
 
+    // this.aroute.queryParamMap.subscribe(value => {
+    //   this.editId = value.get('id');
+    // })
+
+    // if (this.editId != null) {
+    //   edited
+    // }
 
     this.gettasks.getTasks().subscribe(value => {
       // console.log(value)
-      this.TaskData = value
+      this.TaskData = value;
       this.dataSource = new MatTableDataSource(this.TaskData)
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
@@ -44,7 +53,6 @@ export class MathomeComponent implements OnInit {
   }
 
   editTask(item) {
-    console.log(item)
     this.getId.taskId(item._id).subscribe(() => {
       this.router.navigate(["home/taskform"], { queryParams: { id: item._id } })
     })
@@ -62,7 +70,8 @@ export class MathomeComponent implements OnInit {
         this.dataSource = new MatTableDataSource(this.TaskData)
         this.dataSource.sort = this.sort;
         this.dataSource.paginator = this.paginator;
-        this.router.navigate(["/home"])
+        // this.router.onSameUrlNavigation = 'reload';
+        window.location.reload();
       })
     }
   }
