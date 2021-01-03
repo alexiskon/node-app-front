@@ -10,7 +10,7 @@ export class SignupserviceService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/users'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/users'
   signupUser(credentials): Observable<any> {
     return this.http.post<User>(this.url, credentials)
   }

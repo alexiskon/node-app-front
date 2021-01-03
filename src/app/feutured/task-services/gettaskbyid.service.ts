@@ -9,7 +9,7 @@ export class GettaskbyidService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/tasks/'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/tasks/'
 
   taskId(id): Observable<any> {
     return this.http.get<any>(this.url + id)

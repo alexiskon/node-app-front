@@ -9,7 +9,7 @@ export class DeletetaskService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/tasks/'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/tasks/'
 
   delTask (id): Observable<any> {
     return this.http.delete<any>(this.url + id)

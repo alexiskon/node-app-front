@@ -9,7 +9,7 @@ export class CreatetaskService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/tasks'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/tasks'
 
   createTask(tasks): Observable<any> {
     return this.http.post<any>(this.url, tasks)

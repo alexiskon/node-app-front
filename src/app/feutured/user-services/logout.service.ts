@@ -8,7 +8,7 @@ export class LogoutService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/users/logout'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/users/logout'
   logout() {
     let token = localStorage.getItem('token')
     localStorage.removeItem('token')

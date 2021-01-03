@@ -1,0 +1,6 @@
+{
+    "/api": {
+      "target": "https://sleepy-fjord-54959.herokuapp.com/users/me",
+      "secure": false
+    }
+  }

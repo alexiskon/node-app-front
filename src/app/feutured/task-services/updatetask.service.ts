@@ -9,7 +9,7 @@ export class UpdatetaskService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/tasks/'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/tasks/'
   updateTasks(id, credentials): Observable<any> {
     return this.http.patch<any>(this.url + id, credentials)
   }

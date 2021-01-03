@@ -1,11 +1,13 @@
 <div class="container">
     <form class="updateForm" [formGroup]="updateForm" (submit)="submitUpdate()">
         <div class="row">
-            <button class="btn btn-danger ml-auto" id="deletebtn" type="button" (click)="deleteAccount()">Delete Account</button>
+            <button class="btn btn-danger ml-auto" id="deletebtn" type="button" (click)="deleteAccount()">Delete
+                Account</button>
         </div>
         <div class="row">
             <div class="col-12">
-                <label id="header" class="font-weight-bold">Update user<span class="invalid" *ngIf="!confirmUpdate">(Please confim your password to update!)</span>
+                <label id="header" class="font-weight-bold">Update user<span class="invalid"
+                        *ngIf="!confirmUpdate">(Please confim your password to update!)</span>
                 </label>
 
                 <div class="form-group">
@@ -29,14 +31,17 @@
                         id="inputconfirmPassword1" placeholder="Password">
                 </div>
                 <div class="row">
-                    <span class="invalid" *ngIf="updateForm.controls.password.invalid || updateForm.controls.confirmPassword.invalid">Password must be at least 8 characters</span>
+                    <span class="invalid"
+                        *ngIf="updateForm.controls.password.invalid || updateForm.controls.confirmPassword.invalid">Password
+                        must be at least 8 characters</span>
                     <span class="invalid" *ngIf="submitted && !matchedPassword">Wrong passwords!</span>
                 </div>
                 <span><br></span>
-
-                <button class="btn btn-primary" type="submit">Submit</button>
-               
             </div>
+        </div>
+        <div class="row">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-danger" [routerLink]="['..']" type="submit" style="float: right;">Cancel</button>
         </div>
     </form>
 </div>

@@ -12,7 +12,7 @@ export class UserprofileService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  url = 'http://localhost:3000/users/me'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/users/me'
 
   getUserProfile(): Observable<any> {
     let token = localStorage.getItem('token')

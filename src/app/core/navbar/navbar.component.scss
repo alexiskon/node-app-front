@@ -1,0 +1,48 @@
+@media (max-width: 1000px) {
+  nav ul {
+    display: none;
+  }
+}
+
+@media (min-width: 1000px) {
+  .dropdown {
+    display: none;
+  }
+}
+
+.dropdown {
+  float: right;
+  overflow: hidden;
+}
+
+.dropdownbtn {
+  background-color: rgb(182, 122, 44);
+  border-radius: 20px;
+}
+
+.dropdown-content {
+  // position: absolute;
+  display: none;
+  background-color: rgb(182, 122, 44);
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.dropdown-content li {
+  display: block;
+  transition-duration: 0.5s;
+}
+.dropdown-content li a {
+    color: rgb(82, 82, 82);
+    // border: solid 1px black;
+    border-radius: 10px;
+    
+}
+#logoutBtn {
+    padding: auto;
+}
+.dropdown:hover .dropdown-content {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}

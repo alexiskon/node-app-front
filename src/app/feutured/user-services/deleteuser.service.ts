@@ -9,7 +9,7 @@ import { User } from 'src/app/shared/interfaces/user';
 export class DeleteuserService {
 
   constructor(private http: HttpClient) { }
-  url = 'http://localhost:3000/users/me'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/users/me'
   deleteUser(): Observable<any> {
     let token = localStorage.getItem('token');
     localStorage.removeItem('token');

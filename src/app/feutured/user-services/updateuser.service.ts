@@ -9,7 +9,7 @@ export class UpdateuserService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/users/me'
+  url = 'https://sleepy-fjord-54959.herokuapp.com/users/me'
   updateUser(credentials): Observable<any> {
     let token = localStorage.getItem('token')
     console.log(token)
