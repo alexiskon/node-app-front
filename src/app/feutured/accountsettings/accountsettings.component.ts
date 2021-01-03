@@ -50,16 +50,10 @@ export class AccountsettingsComponent implements OnInit {
     }
     if (this.updateForm.controls.confirmPassword.value === this.updateForm.controls.password.value) {
       this.matchedPassword = true;
-      console.log(1)
     }
 
-    if (this.updateForm.invalid || (this.matchedPassword === false) || (this.confirmUpdate === false)) {
-      return;
-    } else {
-      //email already exists error handle
-      console.log(this.confirmUpdate)
-    }
-    if (this.confirmUpdate && this.matchedPassword) {
+
+    if (this.confirmUpdate && this.matchedPassword && this.updateForm.valid) {
       let credentials: User = this.updateForm.value
       console.log(credentials)
       this.update.updateUser(credentials).subscribe(value => {
@@ -67,13 +61,24 @@ export class AccountsettingsComponent implements OnInit {
         localStorage.setItem('token', value.token)
         this.router.navigate(['home'])
       })
+    } else {
+      return
     }
 
   }
 
   deleteAccount() {
+    this.submitted = true;
+    if ((this.updateForm.controls.confirmPassword.value || this.updateForm.controls.password.value) === null) {
+      this.confirmUpdate = false;
+    } else {
+      this.confirmUpdate = true;
+    }
+    if (this.updateForm.controls.confirmPassword.value === this.updateForm.controls.password.value) {
+      this.matchedPassword = true;
+    }
     let result = window.confirm("Are you sure?")
-    if (result) {
+    if (result && this.confirmUpdate && this.matchedPassword) {
       this.deleteacc.deleteUser().subscribe(data => {
         if (data.status === 200) {
           console.log(data.status)

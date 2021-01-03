@@ -4,33 +4,27 @@
             <div class="col-12">
                 <label id="header" class="font-weight-bold">Sign up</label>
                 <div class="form-group">
-                    <label for="name">Name</label>
+                    <label for="name">Name <span class="invalid" *ngIf="signupForm.controls.name.invalid || submitted">*</span></label>
                     <input type="text" formControlName="name" class="form-control" id="inputName"
                         aria-describedby="name" placeholder="Enter your name">
                 </div>
-                <span class="invalid" *ngIf="signupForm.controls.name.invalid && submitted">This field is
-                    required</span>
                 <div class="form-group">
-                    <label for="inputEmail1">Email address</label>
+                    <label for="inputEmail1">Email address <span class="invalid" *ngIf="signupForm.controls.email.invalid || submitted">*</span></label>
                     <input type="email" formControlName="email" class="form-control" id="inputEmail1"
                         aria-describedby="email" placeholder="Enter email">
                 </div>
-                <span class="invalid" *ngIf="signupForm.controls.email.invalid && submitted">This field is
-                    required</span>
                 <div class="form-group">
-                    <label for="inputPassword1">Password</label>
+                    <label for="inputPassword1">Password <span class="invalid" *ngIf="signupForm.controls.password.invalid || submitted">*</span></label>
                     <input type="password" formControlName="password" class="form-control" id="inputPassword1"
                         placeholder="Password">
                 </div>
-                <span class="invalid" *ngIf="signupForm.controls.password.invalid && submitted">This field is
-                    required</span>
+                <span class="invalid" *ngIf="signupForm.get('password').errors?.minlength && submitted">Password must be at least 8 characters!</span>
                 <div class="form-group">
-                    <label for="inputconfirmPassword1">Confirm password</label>
+                    <label for="inputconfirmPassword1">Confirm password <span class="invalid" *ngIf="signupForm.controls.password.invalid || submitted">*</span></label>
                     <input type="password" formControlName="confirmPassword" class="form-control"
                         id="inputconfirmPassword1" placeholder="Password">
                 </div>
-                <span class="invalid" *ngIf="signupForm.controls.confirmPassword.invalid && submitted">This field is
-                    required</span>
+                <span class="invalid" *ngIf="signupForm.get('confirmPassword').errors?.minlength && submitted">Password must be at least 8 characters!</span>
                 <span><br></span>
                 <div class="row">
                     <span class="invalid" *ngIf="!matchedPassword">Wrong password</span>

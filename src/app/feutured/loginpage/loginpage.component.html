@@ -22,7 +22,7 @@
         </div>
         <br>
         <div class="row">
-            <span class="invalid" *ngIf="wrongCredentials">Wrong email or password</span>
+            <span class="invalid" *ngIf="wrongCredentials && submitted">Wrong email or password</span>
         </div>
         <div class="row">
             <label>Dont have account?<a [routerLink]="'signup'">  Sign up</a></label>

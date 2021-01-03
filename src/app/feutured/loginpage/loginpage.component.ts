@@ -15,11 +15,11 @@ export class LoginpageComponent implements OnInit {
     private router: Router, private userProfile: UserprofileService) { }
 
   loginForm: FormGroup;
-  wrongCredentials: boolean = false;
+  wrongCredentials: boolean;
   submitted: boolean = false;
 
   ngOnInit(): void {
-
+    this.wrongCredentials = false;
     this.loginForm = this.fb.group({
       email: [null, Validators.required],
       password: [null, Validators.required]
@@ -38,12 +38,8 @@ export class LoginpageComponent implements OnInit {
         localStorage.setItem('token', data.body.token)
         this.router.navigate(['home'])
       }
-      else {
-        this.wrongCredentials = true;
-
-        return
-      }
     })
+    this.wrongCredentials = true;
   }
 
 }
