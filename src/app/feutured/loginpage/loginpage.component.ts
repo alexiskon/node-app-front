@@ -1,3 +1,4 @@
+import { error } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -19,7 +20,7 @@ export class LoginpageComponent implements OnInit {
   submitted: boolean = false;
 
   ngOnInit(): void {
-    this.wrongCredentials = false;
+    // this.wrongCredentials = false;
     this.loginForm = this.fb.group({
       email: [null, Validators.required],
       password: [null, Validators.required]
@@ -30,16 +31,18 @@ export class LoginpageComponent implements OnInit {
   submitLogin() {
     this.submitted = true;
     let user = this.loginForm.value
-    this.login.loginUser(user).subscribe(data => {
+    this.login.loginUser(user).subscribe((data) => {
       // console.log(1)
       // console.log(data.body.user._id, data.body.token)
       if (data.status === 200) {
         localStorage.setItem('userid', data.body.user._id)
         localStorage.setItem('token', data.body.token)
         this.router.navigate(['home'])
-      }
+      } 
+    }, error => {
+      this.wrongCredentials = true; console.log(error)
     })
-    this.wrongCredentials = true;
+    console.log(2)
   }
 
 }

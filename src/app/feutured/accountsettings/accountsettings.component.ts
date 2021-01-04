@@ -55,7 +55,6 @@ export class AccountsettingsComponent implements OnInit {
 
     if (this.confirmUpdate && this.matchedPassword && this.updateForm.valid) {
       let credentials: User = this.updateForm.value
-      console.log(credentials)
       this.update.updateUser(credentials).subscribe(value => {
         localStorage.setItem('userid', value._id)
         localStorage.setItem('token', value.token)
