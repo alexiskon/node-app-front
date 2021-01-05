@@ -21,7 +21,7 @@
 
 .dropdown {
   float: right;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .dropdownbtn {
@@ -32,6 +32,7 @@
 .dropdown-content {
   // position: absolute;
   display: none;
+  overflow: auto;
   background-color: rgb(182, 122, 44);
   border-radius: 20px;
   padding: 10px;
@@ -53,5 +54,5 @@
 .dropdown:hover .dropdown-content {
   display: block;
   visibility: visible;
-  opacity: 1;
+  // opacity: 1;
 }
