@@ -33,14 +33,6 @@ export class MathomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // this.aroute.queryParamMap.subscribe(value => {
-    //   this.editId = value.get('id');
-    // })
-
-    // if (this.editId != null) {
-    //   edited
-    // }
-
     this.gettasks.getTasks().subscribe(value => {
       // console.log(value)
       this.TaskData = value;
@@ -82,8 +74,3 @@ export class MathomeComponent implements OnInit {
   }
 
 }
-
-// const TaskData: Task[] = [];
-  // { position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H' },
-  // displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-
