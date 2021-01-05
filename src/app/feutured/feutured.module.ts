@@ -12,6 +12,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import {MatButtonModule} from '@angular/material/button';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -25,8 +26,9 @@ import {MatButtonModule} from '@angular/material/button';
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    MatButtonModule
+    MatButtonModule,
+    MatFormFieldModule
   ],
-  exports: [LoginpageComponent, SignuppageComponent, AccountsettingsComponent, TaskformComponent, MathomeComponent, MatTableModule, MatPaginatorModule, MatSortModule, MatButtonModule]
+  exports: [LoginpageComponent, SignuppageComponent, AccountsettingsComponent, TaskformComponent, MathomeComponent, MatTableModule, MatFormFieldModule, MatPaginatorModule, MatSortModule, MatButtonModule]
 })
 export class FeuturedModule { }

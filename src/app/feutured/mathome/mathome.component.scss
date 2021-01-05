@@ -21,6 +21,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.filter {
+  border-radius: 5px;
+  border: solid 5px black;
+}
 #page {
   width: 50%;
   background-color: rgb(182, 122, 44);
