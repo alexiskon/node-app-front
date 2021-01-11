@@ -1,6 +1,6 @@
-.container {
-  padding: 10px;
-}
+// .container {
+//   padding: 10px;
+// }
 .search {
   border-radius: 5px;
   border: solid 5px black;
@@ -17,4 +17,9 @@
 }
 th.mat-sort-header-sorted {
   color: black;
+}
+@media (max-width: 700px) {
+  .container {
+      margin-left: 20%;
+  }
 }

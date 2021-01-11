@@ -1,6 +1,6 @@
 .content {
   align-content: center;
-  max-height: 60%;
+  // max-height: 60%;
   width: auto;
   display: flex;
   align-items: center;
@@ -8,12 +8,8 @@
   margin-top: 12%;
   margin-bottom: 12%;
 }
-.footer {
-    margin-top: 10%;
-}
 @media (max-width: 700px) {
-    .content {
-        margin-left: 25%;
-        margin-bottom: 20%;
-    }
+  .content {
+      margin-bottom: 20%;
   }
+}
