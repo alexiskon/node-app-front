@@ -1,1 +1,19 @@
-
+.content {
+  align-content: center;
+  max-height: 60%;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12%;
+  margin-bottom: 12%;
+}
+.footer {
+    margin-top: 10%;
+}
+@media (max-width: 700px) {
+    .content {
+        margin-left: 25%;
+        margin-bottom: 20%;
+    }
+  }
